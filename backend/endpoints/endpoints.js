@@ -6,3 +6,6 @@ endpoints.myFirstEndpoint = async function () {
    // console.log('The logged-in user is: ', this.user.username);
     return {msg: 'Hello, from my first Wildcard endpoint'};
 };
+
+
+

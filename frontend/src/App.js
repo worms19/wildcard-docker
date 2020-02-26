@@ -1,34 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {endpoints} from '@wildcard-api/client';
+import wildcardClient, {endpoints} from '@wildcard-api/client';
+
 
 function App() {
 
-  // Browser
+wildcardClient.serverUrl = 'http://localhost:8000'; // Default value is `null`
+  // Browserc
 
+  const [fecth, setFech] = React.useState('');
+  const [counter, setCounter] = React.useState(0);
 
+    async function fetchData() {
+        const msg = await endpoints.myFirstEndpoint();
+        setFech(msg.msg);
+        setCounter(counter + 1);
+    }
 
-  (async () => {
-    const {msg} = await endpoints.myFirstEndpoint();
-    console.log(msg);
-  })();
+    useEffect(() => {
+        console.log('use effect');
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        console.log('use effect 2');
+    }, [counter]);
 
   return (
+
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            {fecth + counter}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <p onClick={fetchData}>
           Learn React
-        </a>
+
+        </p>
       </header>
     </div>
   );
