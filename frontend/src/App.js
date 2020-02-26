@@ -1,8 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {endpoints} from '@wildcard-api/client';
 
 function App() {
+
+  // Browser
+
+
+
+  (async () => {
+    const {msg} = await endpoints.myFirstEndpoint();
+    console.log(msg);
+  })();
+
   return (
     <div className="App">
       <header className="App-header">
