@@ -10,4 +10,3 @@ RUN npm install
 
 COPY . /srv/app/wildcard-backend
 
-CMD ["npm", "run", "dev"]

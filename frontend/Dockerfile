@@ -10,4 +10,3 @@ RUN npm install
 
 COPY . /srv/app/wildcard-front
 
-CMD ["npm", "start"]

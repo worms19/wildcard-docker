@@ -7,6 +7,7 @@ require('dotenv').config();
 const wildcard = require('@wildcard-api/server/express'); // npm install @wildcard-api/server
 
 const app = express();
+const testDBRouter = require("./testDB");
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -30,19 +31,20 @@ app.use(wildcard(getContext));
 // `req` is Express' request object
 async function getContext(req) {
     const context = {};
-    console.log("salut");
-    console.log(req);
     // Authentication middlewares usually make user information available at `req.user`.
     context.user = req.user;
     return context;
 }
 
-//app.use(express.static(__dirname+'/../wildcard-front/build/'));
-//app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use("/testDB", testDBRouter);
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname+'/../wildcard-front/build/index.html'));
-// });
+
+app.use(express.static(__dirname+'/../wildcard-front/build/'));
+// app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/../wildcard-front/build/index.html'));
+});
 
 
 app.listen(port);

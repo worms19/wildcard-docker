@@ -2,18 +2,15 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const bookingSchema = new Schema(
-  {
-    event: {
-      type: Schema.Types.ObjectId,
-      ref: 'Event',
+const proutSchema = new Schema({
+    test1: {
+        type: String,
+        required: true,
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
+    test2: {
+        type: String,
+        required: true,
     },
-  },
-  { timestamps: true }
-);
+});
 
-module.exports = mongoose.model('Booking', bookingSchema);
+module.exports = mongoose.model('Prout', proutSchema);
