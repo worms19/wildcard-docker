@@ -1,27 +1,29 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const educationSchema = new Schema({
-    UniversityName:{
-        type: String,
+const workSchema = new Schema({
+    CompanyName:{
+        type:String,
         required:true,
     },
     specialization:{
-        type: String,
+        type:String,
         required:true,
     },
-    MonthOfPassing:{
-        type: String,
+    MonthOfLeaving:{
+        type:String,
         required:true,
     },
-    YearOfPassing:{
-        type: String,
+    YearOfLeaving:{
+        type:String,
         required:true,
     },
     Achievements:{
-        type: String,
+        type:Array,
         required:true,
     },
 });
 
-module.exports = mongoose.model('Education', educationSchema);
+module.exports = mongoose.model('Work', workSchema);
+
+

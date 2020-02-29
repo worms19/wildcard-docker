@@ -1,4 +1,6 @@
 // Node.js server
+const {getWork} = require("../db/Objects/WorkFunc");
+const {createWork} = require("../db/Objects/WorkFunc");
 const {deleteEducation} = require("../db/Objects/EducationFunc");
 const {getEducation} = require("../db/Objects/EducationFunc");
 const {createEducation} = require("../db/Objects/EducationFunc");
@@ -22,10 +24,22 @@ endpoints.writingEndpoint = async function () {
     return a;
 };
 
+endpoints.writingWork = async function () {
+    const work = await createWork();
+    return work;
+};
+
+
 endpoints.getEducationObject = async function () {
     const education = await getEducation();
     console.log("education", education);
     return education;
+};
+
+endpoints.getWorkObject = async function () {
+    const work = await getWork();
+    console.log("work", work);
+    return work;
 };
 
 endpoints.deleteEducationObject = async function (id) {

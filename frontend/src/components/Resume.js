@@ -2,16 +2,20 @@ import React, {useEffect} from 'react';
 import wildcardClient, {endpoints} from "@wildcard-api/client";
 function Resume(props) {
 
-    const resumeData = props.resumeData;
-    const [resumeData2, setResumeData2] = React.useState([]);
+    const resumeDataStatic = props.resumeData;
+    const [resumeData, setResumeData] = React.useState([]);
+    const [workData, setWorkData] = React.useState([]);
     wildcardClient.serverUrl = 'http://localhost:8000';
 
     async function fetchData() {
-        const msg = await endpoints.getEducationObject();
+        const resume = await endpoints.getEducationObject();
+        const work = await endpoints.getWorkObject();
 
-        console.log('msg', msg);
-        setResumeData2(msg);
-        console.log('rsData' ,resumeData2);
+        console.log('resume', resume);
+        console.log('work', work);
+        setResumeData(resume);
+        setWorkData(work);
+        console.log('rsData' ,resumeData);
     }
     useEffect(() => {
         console.log('use effect3');
@@ -29,7 +33,7 @@ function Resume(props) {
             </div>
             <div className="nine columns main-col">
               {
-                  resumeData2 && resumeData2.map((item)=>{
+                  resumeData && resumeData.map((item)=>{
                   return(
                     <div className="row item">
                        <div className="twelve columns">
@@ -53,7 +57,7 @@ function Resume(props) {
             </div>
             <div className="nine columns main-col">
               {
-                resumeData.work && resumeData.work.map((item) => {
+                  workData && workData.map((item) => {
                   return(
                     <div className="row item">
                        <div className="twelve columns">
@@ -61,9 +65,12 @@ function Resume(props) {
                           <p className="info">
                           {item.specialization}
                           <span>&bull;</span> <em className="date">{item.MonthOfLeaving} {item.YearOfLeaving}</em></p>
-                          <p>
-                          {item.Achievements}
-                          </p>
+
+                          {item.Achievements.map(i => {
+                              return <p>{i}</p>;
+                          })
+                          }
+
                        </div>
 
                     </div>
@@ -79,12 +86,12 @@ function Resume(props) {
             </div>
             <div className="nine columns main-col">
                <p>
-               {resumeData.skillsDescription}
+               {resumeDataStatic.skillsDescription}
                </p>
    				<div className="bars">
    				   <ul className="skills">
                 {
-                  resumeData.skills && resumeData.skills.map((item) => {
+                    resumeDataStatic.skills && resumeDataStatic.skills.map((item) => {
                     return(
                       <li>
                       <span className={`bar-expand ${item.skillname.toLowerCase()}`}>

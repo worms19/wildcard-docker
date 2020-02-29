@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/data-node
 # production
 /build
 
