@@ -12,11 +12,11 @@ module.exports = {
     },
     createEducation: async () => {
         const educObject = new Education({
-            UniversityName:"ENSEA",
+            UniversityName:"IUT",
             specialization:"Electronic",
             MonthOfPassing:"August",
-            YearOfPassing:"2014",
-            Achievements:"motor projects",
+            YearOfPassing:"2011",
+            Achievements:"FPGA projects",
         });
         try {
             const result = await educObject.save();

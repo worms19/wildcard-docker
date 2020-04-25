@@ -4,7 +4,7 @@ let resumeData = {
     "role": "Fullstack Javascript Developer Node/React ",
     "linkedinId":"Your LinkedIn Id",
     "skypeid": "Your skypeid",
-    "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, write technical articles or simply play games in my free time.",
+    "roleDescription": "I like dabbling in various parts of fullStack development and like to learn about new technologies, read technical articles or simply play games in my free time.",
     "socialLinks":[
         {
           "name":"linkedin",
@@ -68,23 +68,14 @@ let resumeData = {
       {
         "name":"project1",
         "description":"mobileapp",
-        "imgurl":"images/portfolio/coffee.jpg"
+        "imgurl":"images/portfolio/baroncrane.png"
       },
       {
         "name":"project2",
         "description":"mobileapp",
         "imgurl":"images/portfolio/coffee.jpg"
       },
-      {
-        "name":"project3",
-        "description":"mobileapp",  
-        "imgurl":"images/portfolio/coffee.jpg"
-      },
-      {
-        "name":"project4",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/coffee.jpg"
-      }
+
     ],
     "testimonials":[
       {

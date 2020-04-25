@@ -20,7 +20,6 @@ function App() {
     async function fetchData() {
         const msg = await endpoints.myFirstEndpoint();
         setFech(msg.msg);
-        setCounter(counter + 1);
     }
 
     useEffect(() => {

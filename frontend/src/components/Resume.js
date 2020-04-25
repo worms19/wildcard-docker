@@ -17,6 +17,12 @@ function Resume(props) {
         setWorkData(work);
         console.log('rsData' ,resumeData);
     }
+
+    async function buttonFunction () {
+        const resume = await endpoints.writingWork();
+        console.log('rr', resume);
+    }
+
     useEffect(() => {
         console.log('use effect3');
         (async function anyNameFunction() {
@@ -28,6 +34,7 @@ function Resume(props) {
     return (
       <section id="resume">
          <div className="row education">
+             <button onClick={buttonFunction}> TEST </button>
             <div className="three columns header-col">
                <h1><span>Education</span></h1>
             </div>

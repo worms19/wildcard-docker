@@ -49,3 +49,5 @@ endpoints.deleteEducationObject = async function (id) {
     return education;
 };
 
+
+

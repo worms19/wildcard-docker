@@ -12,11 +12,11 @@ module.exports = {
     },
     createWork: async () => {
         const educObject = new Work({
-            CompanyName: "Solent",
+            CompanyName: "Sopra",
             specialization: "Full Stack Develloper",
-            MonthOfLeaving: "2020",
-            YearOfLeaving: "02",
-            Achievements: ["mise en prod de easylink", "destruction de ogive"]
+            MonthOfLeaving: "05",
+            YearOfLeaving: "2019",
+            Achievements: ["appli de l'ofii", "CIR / CIR presta"]
         });
         try {
             const result = await educObject.save();
