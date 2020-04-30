@@ -7,7 +7,7 @@ require('dotenv').config();
 const wildcard = require('@wildcard-api/server/express'); // npm install @wildcard-api/server
 
 const app = express();
-const testDBRouter = require("./testDB");
+// const testDBRouter = require("./testDB");
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.use(wildcard(getContext));
+// app.use(wildcard(getContext));
 
 // `getContext` is called on every API request. It defines the `context` object.
 // `req` is Express' request object
@@ -36,7 +36,7 @@ async function getContext(req) {
     return context;
 }
 
-app.use("/testDB", testDBRouter);
+// app.use("/testDB", testDBRouter);
 
 
 app.use(express.static(__dirname+'/../wildcard-front/build/'));

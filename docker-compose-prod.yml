@@ -5,37 +5,18 @@ volumes:
 
 services:
 ##############################################################
-#         Setup mongo container
-##############################################################
-  mongodb:
-    image: mongo
-    restart: always
-    container_name: mongodb
-    volumes:
-      - ./data-node:/data/db
-    ports:
-      - 27017:27017
-    command: mongod --noauth 
-##############################################################
 #         Setup node container
 ##############################################################
-
   backend:
     build: ./backend
     expose:
-      - ${APP_SERVER_PORT}
-    environment:
-      API_HOST: ${API_HOST}
-      APP_SERVER_PORT: ${APP_SERVER_PORT}
-      DB_CONNECTION: ${DB_CONNECTION}
+      - 8000
     ports:
-    - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
-    links:
-      - mongodb
+      - 8000:8000
     volumes:
     - ./backend/:/srv/app/wildcard-backend/
     - frontend-volume:/srv/app/wildcard-front/
-    command: npm run dev
+    command: sh -c "npm start"
 
 ##############################################################
 #         Setup client container
@@ -44,11 +25,11 @@ services:
   frontend:
     build: ./frontend
     expose:
-      - ${REACT_APP_PORT}
+      - 3000
     environment:
-      REACT_APP_PORT: ${REACT_APP_PORT}
+      REACT_APP_PORT: 3000
     ports:
-    - ${REACT_APP_PORT}:${REACT_APP_PORT}
+      - 3000:3000
     volumes:
     - frontend-volume:/srv/app/wildcard-front/
     depends_on:
