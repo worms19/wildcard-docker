@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import wildcardClient, {endpoints} from "@wildcard-api/client";
+import './Resume.css'
+
 function Resume(props) {
 
     const resumeDataStatic = props.resumeData;
@@ -8,14 +10,9 @@ function Resume(props) {
     wildcardClient.serverUrl = 'http://localhost:8000';
 
     async function fetchData() {
-        const resume = await endpoints.getEducationObject();
-        const work = await endpoints.getWorkObject();
-
-        console.log('resume', resume);
-        console.log('work', work);
+        const [resume, work] = await Promise.all([endpoints.getEducationObject(), endpoints.getWorkObject()]);
         setResumeData(resume);
         setWorkData(work);
-        console.log('rsData' ,resumeData);
     }
 
     async function buttonFunction () {
@@ -24,7 +21,6 @@ function Resume(props) {
     }
 
     useEffect(() => {
-        console.log('use effect3');
         (async function anyNameFunction() {
             await fetchData();
         })();
@@ -34,21 +30,18 @@ function Resume(props) {
     return (
       <section id="resume">
          <div className="row education">
-             <button onClick={buttonFunction}> TEST </button>
-            <div className="three columns header-col">
                <h1><span>Education</span></h1>
-            </div>
             <div className="nine columns main-col">
               {
-                  resumeData && resumeData.map((item)=>{
+                  resumeDataStatic.education && resumeDataStatic.education.map((item)=>{
                   return(
                     <div className="row item">
                        <div className="twelve columns">
                           <h3>{item.UniversityName}</h3>
                           <p className="info">
                           {item.specialization}
-                          <span>&bull;</span> <em className="date">{item.MonthOfPassing} {item.YearOfPassing}</em></p>
-                          <p>
+                          <span>&bull;</span> <em className="date"> {item.MonthOfPassing} {item.YearOfPassing}</em></p>
+                          <p className="achievement">
                           {item.Achievements}
                           </p>
                        </div>
@@ -64,20 +57,16 @@ function Resume(props) {
             </div>
             <div className="nine columns main-col">
               {
-                  workData && workData.map((item) => {
+                  resumeDataStatic.work && resumeDataStatic.work.map((item) => {
                   return(
                     <div className="row item">
                        <div className="twelve columns">
                           <h3>{item.CompanyName}</h3>
                           <p className="info">
-                          {item.specialization}
-                          <span>&bull;</span> <em className="date">{item.MonthOfLeaving} {item.YearOfLeaving}</em></p>
-
-                          {item.Achievements.map(i => {
-                              return <p>{i}</p>;
-                          })
-                          }
-
+                            {item.specialization}
+                            <span>&bull;</span> <em className="date">{item.MonthOfLeaving} {item.YearOfLeaving} / {item.MonthOfLeaving} {item.YearOfLeaving}</em>
+                          </p>
+                           <p className="achievement">{item.Achievements}</p>
                        </div>
 
                     </div>
@@ -87,30 +76,7 @@ function Resume(props) {
               }
             </div> 
          </div>
-         <div className="row skill">
-            <div className="three columns header-col">
-               <h1><span>Skills</span></h1>
-            </div>
-            <div className="nine columns main-col">
-               <p>
-               {resumeDataStatic.skillsDescription}
-               </p>
-   				<div className="bars">
-   				   <ul className="skills">
-                {
-                    resumeDataStatic.skills && resumeDataStatic.skills.map((item) => {
-                    return(
-                      <li>
-                      <span className={`bar-expand ${item.skillname.toLowerCase()}`}>
-                      </span><em>{item.skillname}</em>
-                      </li>
-                    )
-                  })
-                }
-   					</ul>
-   				</div>
-   			</div>
-         </div>
+
       </section>
     );
 }

@@ -1,0 +1,9 @@
+.achievement{
+    white-space: pre-line;
+}
+.skillList{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+

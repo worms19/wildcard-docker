@@ -1,5 +1,8 @@
 version:  '3'
 
+volumes:
+  mongodata:
+
 services:
   ##############################################################
   #         Setup mongo container
@@ -9,7 +12,7 @@ services:
     restart: always
     container_name: mongodbWild
     volumes:
-      - ./data-node:/data/db
+      - mongodata:/data/db
     ports:
       - 27017:27017
     command: mongod --noauth
@@ -23,15 +26,14 @@ services:
     expose:
       - 8000
     environment:
-      APP_SERVER_PORT: ${APP_SERVER_PORT}
-      DB_CONNECTION: ${DB_CONNECTION}
+      APP_SERVER_PORT: 8000
     ports:
-    - 8000:8000
+        - 8000:8000
     depends_on:
         - mongodb
     volumes:
-    - ./backend/:/srv/app/wildcard-backend/
-    command: npm run dev
+        - ./backend/:/srv/app/wildcard-backend/
+    command: sh -c "npm install && npm run dev"
 
 ##############################################################
 #         Setup client container
@@ -42,7 +44,7 @@ services:
     expose:
       - 3000
     environment:
-      REACT_APP_PORT: ${REACT_APP_PORT}
+      REACT_APP_PORT: 3000
     ports:
     - 3000:3000
     volumes:
@@ -51,4 +53,3 @@ services:
     depends_on:
       - backend
     command: sh -c "npm install && npm start"
-

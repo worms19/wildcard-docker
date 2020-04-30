@@ -38,42 +38,71 @@ let resumeData = {
     ],
     "work":[
       {
-        "CompanyName":"Some Company",
-        "specialization":"Some specialization",
+        "CompanyName":"SOLENT",
+        "specialization":"Développeur FullStack",
         "MonthOfLeaving":"Jan",
         "YearOfLeaving":"2018",
-        "Achievements":"Some Achievements"
+        "Achievements":"Projet de refonte d’un système d’information pour la gestion de l’activité des collaborateurs d’une société de service en ingénierie :\n" +
+            "Développement JavaScript (NodeJs, ReactJs, Loopback)  \n" +
+            "Ajout de composants front-end, de fonctionnalités API\n" +
+            "Ecriture et implémentations des tests unitaires et fonctionnels \n" +
+            "Assistance Client\n" +
+            "Maintien en conditions opérationnelles des applications de gestion des activité du consultant\n"
       },
       {
-        "CompanyName":"Some Company",
-        "specialization":"Some specialization",
+        "CompanyName":"SOPRA STERIA",
+        "specialization":"Développeur FullStack",
         "MonthOfLeaving":"Jan",
         "YearOfLeaving":"2018",
-        "Achievements":"Some Achievements"
-      }
+        "Achievements":`Maintien et développement des applications de l’OFII \n (Office Français de l’Immigration et de l’Intégration) \n Développement Java, Javascript, Apache Struts \n Maintien en conditions opérationnelles Gestion d’environnement serveur \n Assistance Client \n Environnement : Windows Server, Java 6, Apache Struts, OracleSQL`
+      },
     ],
     "skillsDescription":"Your skills here",
     "skills":[
-      {
-        "skillname":"HTML5"
-      },
-      {
-        "skillname":"CSS"
-      },
-      {
-        "skillname":"Reactjs"
-      }
+        {   "skillType":"Langages",
+            "skillList": "JavaScript,  Java, C"
+        },
+        {
+            "skillType":"Systèmes",
+            "skillList": "Windows, Linux"
+        },
+        {
+            "skillType":"Outils",
+            "skillList": "IntelliJ, Visual studio code , Eclipse, npm"
+        },
+        {
+            "skillType":"SGBD",
+            "skillList": "MongoDB, MySQL, SQLite"
+        },
+        {
+            "skillType":"Web",
+            "skillList": "Reactjs, Nodejs, Loopback, Express, Docker, npm"
+        },
+        {
+            "skillType":"Méthodes",
+            "skillList": "Agile, Cycle en V"
+        },
+        {
+            "skillType":"Gestion de conf",
+            "skillList": "GIT, SVN, Fork, GitKraken"
+        },
     ],
     "portfolio":[
       {
-        "name":"project1",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/baroncrane.png"
+        "name":"Http Streaming server: ",
+        "url":"https://github.com/Web-Multi-Media/HttpStreamingServer",
+        "description":"This project is a homemade netflix made with Django REST and REACT. It handles video input on the backend side, automatic classification and display",
       },
       {
-        "name":"project2",
-        "description":"mobileapp",
-        "imgurl":"images/portfolio/coffee.jpg"
+        "name":"Baron crane: ",
+        "url":"https://github.com/worms19/react-baron",
+        "url2":"http://baroncrane.com",
+        "description":"this was my first solo project: a fully responsive web page to promote a local French band using React/node mongo/graphQl",
+      },
+        {
+        "name":"Covideo game: ",
+        "url":"https://github.com/Web-Multi-Media/covideo-game",
+        "description":"during the isolation we decided to use our free time to build a social game using web sockets, node js and react",
       },
 
     ],

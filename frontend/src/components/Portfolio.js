@@ -1,35 +1,80 @@
 import React from 'react';
+import './Portfolio.css'
+
 function Porfolio(props){
     let resumeData = props.resumeData;
     return (
       <section id="portfolio">
-      <div className="row">
-        <div className="twelve columns collapsed">
-          <h1>Check Out Some of My Works.</h1>
-          <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-          {
-            resumeData.portfolio && resumeData.portfolio.map((item)=>{
-              return(
-                <div className="columns portfolio-item">
-                  <div className="item-wrap">
-                    <a href="#modal-01">
-                      <img src={`${item.imgurl}`} className="item-img"/>
-                      <div className="overlay">
-                        <div className="portfolio-item-meta">
-                          <h5>{item.name}</h5>
-                          <p>{item.description}</p>
-                        </div>
+          <div className="Grid">
+              <div className="GridLeft">
+                  <div className="row">
+                      <div className="twelve columns collapsed">
+                          <h1 className="projectTitle">Check Out Some of My Works.</h1>
+                          {
+                              resumeData.portfolio && resumeData.portfolio.map(item => {
+                                  return(
+                                      <div className="projectLine">
+                                          <p>
+                                              <a href={item.url} target="_blank"> {item.name}</a>
+                                              {item.description}
+                                              {item.url2 &&
+                                              <a href={item.url2} target="_blank"> Deployed here</a>
+                                              }
+                                          </p>
+                                      </div>
+                                  )
+                              })
+                          }
                       </div>
-                    </a>
                   </div>
-                </div>
-              )
-            })
-          }
+              </div>
+              <div className="GridRight">
+                  <div className="row skill">
+                      <div className="three columns header-col">
+                          <h1><span>Skills</span></h1>
+                      </div>
+                      <div className="nine columns main-col">
+                          <div className="bars">
+                              <ul className="skills">
+                                  <div className="skillList">
+                                      {
+                                          resumeData.skills && resumeData.skills.map((item) => {
+                                              return(
+                                                  <div className="itemList">
+                                                      <em><strong>{item.skillType} :</strong></em>
+                                                      <em> {item.skillList}</em>
+                                                  </div>
+                                              )
+                                          })
+                                      }
+                                  </div>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-  </section>
+          <div className="row section-head">
+              <div className="ten columns">
+                  <p className="lead">
+                      Feel free to contact me for any work or suggestions below
+                  </p>
+              </div>
+          </div>
+          <ul className="social">
+              {
+                  resumeData.socialLinks && resumeData.socialLinks.map(item =>{
+                          return(
+                              <li key={item.name}>
+                                  <a href={item.url} target="_blank"><i className={item.className}/></a>
+                              </li>
+                          )
+                      }
+                  )
+              }
+          </ul>
+
+      </section>
         );
 }
 
