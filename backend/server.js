@@ -1,10 +1,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const path = require('path');
 require('dotenv').config();
-const wildcard = require('@wildcard-api/server/express'); // npm install @wildcard-api/server
 
 const app = express();
 // const testDBRouter = require("./testDB");

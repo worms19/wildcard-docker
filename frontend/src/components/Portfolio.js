@@ -7,7 +7,6 @@ function Porfolio(props){
       <section id="portfolio">
           <div className="Grid">
               <div className="GridLeft">
-                  <div className="row">
                       <div className="twelve columns collapsed">
                           <h1 className="projectTitle">Check Out Some of My Works.</h1>
                           {
@@ -25,11 +24,10 @@ function Porfolio(props){
                                   )
                               })
                           }
-                      </div>
                   </div>
               </div>
               <div className="GridRight">
-                  <div className="row skill">
+                  <div className="skill">
                       <div className="three columns header-col">
                           <h1><span>Skills</span></h1>
                       </div>

@@ -11,11 +11,9 @@
   "author": "worms19",
   "license": "ISC",
   "dependencies": {
-    "@wildcard-api/server": "^0.2.10",
     "body-parser": "latest",
     "dotenv": "latest",
-    "express": "latest",
-    "mongoose": "^5.9.2"
+    "express": "latest"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

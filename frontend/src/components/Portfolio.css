@@ -31,20 +31,37 @@
 
 #portfolio a { color: #fff; }
 #portfolio a:hover { color: #11ABB0; }
+@media only screen and (min-width: 767px) {
+    .Grid{
+        display: grid;
+        grid-template-columns: repeat(13, 110px);
+        margin: 0 auto 12px auto;
+        justify-content: center;
+    }
 
-.Grid{
-    display: grid;
-    grid-template-columns: repeat(13, 110px);
-    margin: 0 auto 12px auto;
-    justify-content: center;
+    .GridLeft{
+        grid-column: 1 / 10;
+    }
+
+    .GridRight{
+        grid-column: 10 / 14;
+    }
 }
 
-.GridLeft{
-    grid-column: 1 / 10;
-}
+@media only screen and (max-width: 767px) {
+    .Grid{
+        display: grid;
+        margin: 0 auto 12px auto;
+        justify-content: center;
+    }
 
-.GridRight{
-    grid-column: 10 / 14;
+    .GridLeft{
+        margin: 20px;
+    }
+
+    .GridRight{
+        margin-top: -70px;
+    }
 }
 
 #portfolio h1 span{
