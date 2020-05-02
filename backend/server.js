@@ -11,7 +11,7 @@ const app = express();
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = 8000;
+var port = 8080;
 
 // We install the Wildcard middleware
 

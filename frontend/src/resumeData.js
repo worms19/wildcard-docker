@@ -59,19 +59,19 @@ let resumeData = {
     ],
     "skillsDescription":"Your skills here",
     "skills":[
-        {   "skillType":"Langages",
+        {   "skillType":"Language",
             "skillList": "JavaScript,  Java, C"
         },
         {
-            "skillType":"Systèmes",
+            "skillType":"Os",
             "skillList": "Windows, Linux"
         },
         {
-            "skillType":"Outils",
-            "skillList": "IntelliJ, Visual studio code , Eclipse, npm"
+            "skillType":"Tools",
+            "skillList": "IntelliJ, VScode , Eclipse, npm"
         },
         {
-            "skillType":"SGBD",
+            "skillType":"RDBMS",
             "skillList": "MongoDB, MySQL, SQLite"
         },
         {
@@ -79,11 +79,11 @@ let resumeData = {
             "skillList": "Reactjs, Nodejs, Loopback, Express, Docker, npm"
         },
         {
-            "skillType":"Méthodes",
-            "skillList": "Agile, Cycle en V"
+            "skillType":"Methods",
+            "skillList": "Agile, V model"
         },
         {
-            "skillType":"Gestion de conf",
+            "skillType":"Version control",
             "skillList": "GIT, SVN, Fork, GitKraken"
         },
     ],

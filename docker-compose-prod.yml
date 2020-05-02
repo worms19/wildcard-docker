@@ -5,20 +5,6 @@ volumes:
 
 services:
 ##############################################################
-#         Setup node container
-##############################################################
-  backend:
-    build: ./backend
-    expose:
-      - 8000
-    ports:
-      - 8000:8000
-    volumes:
-    - ./backend/:/srv/app/wildcard-backend/
-    - frontend-volume:/srv/app/wildcard-front/
-    command: sh -c "npm start"
-
-##############################################################
 #         Setup client container
 ##############################################################
 
@@ -31,8 +17,23 @@ services:
     ports:
       - 3000:3000
     volumes:
-    - frontend-volume:/srv/app/wildcard-front/
+      - frontend-volume:/srv/app/wildcard-front/
     depends_on:
       - backend
     command: sh -c "npm install && npm run build"
+
+
+  ##############################################################
+#         Setup node container
+##############################################################
+  backend:
+    build: ./backend
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    volumes:
+    - ./backend/:/srv/app/wildcard-backend/
+    - frontend-volume:/srv/app/wildcard-front/
+    command: sh -c "npm start"
 
